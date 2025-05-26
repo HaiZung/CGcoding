@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsmmbg0igdxa0"]
+[gd_scene load_steps=10 format=3 uid="uid://bsmmbg0igdxa0"]
 
 [ext_resource type="Texture2D" uid="uid://cbwc5shpjuorf" path="res://MeterGrid.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cuu1i2vtkqk3s" path="res://camera_rig.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d1fvhekxcpolw" path="res://Haus.blend" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cjq71l76hregm" path="res://Baum.blend" id="4_1bvp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
 sky_horizon_color = Color(0.738513, 0.778796, 0.768791, 1)
@@ -41,9 +43,18 @@ transform = Transform3D(1, 0, 0, 0, 0.0338703, 0.999426, 0, -0.999426, 0.0338703
 sky_mode = 1
 
 [node name="CameraRig" type="Node3D" parent="."]
-transform = Transform3D(-0.999927, -9.9658e-06, 0.0121297, 3.53393e-05, 0.999993, 0.00373482, -0.0121297, 0.00373498, -0.999919, 0.00069809, -0.0211127, 0.00203323)
+transform = Transform3D(-0.999927, -9.96581e-06, 0.0121297, -0.00241871, 0.980081, -0.198583, -0.0118862, -0.198598, -0.980008, 0.00069809, -0.0211127, 0.00203323)
 script = ExtResource("2_h2yge")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(0.99982, 0.0100061, -0.016105, -0.00014178, 0.853327, 0.521376, 0.0189598, -0.52128, 0.853175, 0, 4.39325, 9.00548)
 fov = 75.8595
+
+[node name="Haus" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(0.519117, 0, 0, 0, 0.578903, 0, 0, 0, 0.477149, -3.13012, -0.013664, -2.73753)
+
+[node name="Haus2" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(0.519117, 0, 0, 0, 0.578903, 0, 0, 0, 0.477149, -3.13012, -0.013664, 2.44219)
+
+[node name="Baum" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.538653, 0, -0.842528, 0, 1, 0, 0.842528, 0, 0.538653, 3.59069, 0, -3.57509)
