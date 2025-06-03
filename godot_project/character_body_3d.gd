@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("ui_down", "ui_up", "ui_left", "ui_right")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		var mouse_vel = Input.get_last_mouse_velocity()
 		rotation.y -= mouse_vel.x * camera_pan_speed * Pan_Speed_Factor
 		var cam_rig_rot = $CameraRig.rotation.x + mouse_vel.y * camera_pan_speed * Pan_Speed_Factor
-		cam_rig_rot = clamp(cam_rig_rot, -PI/2, PI/8)
+		cam_rig_rot = clamp(cam_rig_rot, -PI/6, PI/2)
 		$CameraRig.rotation.x = cam_rig_rot
 		
 		if Input.is_action_just_pressed("ui_cancel"):
